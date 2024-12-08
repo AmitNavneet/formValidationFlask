@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="static/style.css"></link>
+        <title>Data Validation</title>
+    </head>
+
+    <body>
+{% if not formData %}
+
+{% 
+    set formData={
+        "nameFrm":"",
+        "rollFrm":"",
+        "scoreFrm":"",
+        "cgpaFrm":""
+    }
+    %}
+
+
+
+
+{% endif %}
+        
+       
+        <h2>{{errMessage}}</h2>
+        <form action="validate">
+            <table>
+                <tr>
+                    <td>
+                        Enter Name:
+                    </td>
+                    <td>
+                        <input type="text" name="studName" value="{{formData['nameFrm']}}">
+                    </td>
+                    <td class="error">
+                        {{nameError}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Enter Roll Number:
+                    </td>
+                    <td>
+                        <input type="text" name="studRoll" value="{{formData['rollFrm']}}">
+                    </td>
+                    <td class="error">{{rollError}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Enter SGPA:
+                    </td>
+                    <td>
+<input type="text" name="studScore" value="{{formData['scoreFrm']}}">
+                    </td>
+                    <td class="error">
+                        {{scoreError}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Enter CGPA:
+                    </td>
+                    <td>
+                        <input type="text" name="cgpa" value="{{formData['cgpaFrm']}}">
+                    </td>
+                    <td class="error">
+                        {{cgpaError}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+<input type="reset">
+                    </td>
+                    <td>
+<input type="submit" value="Save">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
